@@ -2,14 +2,15 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Agents.json",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/wildcard-logo1.png",
+    "light": "/logo/wildcard-logo1.png",
+    "href": "https://wild-card.ai"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/asteriskHeavyWildcard-240px.png",
   "colors": {
     "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "light": "#0783C9",
+    "dark": "#0D7393",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -17,25 +18,24 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Feedback",
+      "url": "mailto:founders@wild-card.ai"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Contribute",
+    "url": "https://github.com/wild-card-ai/agents-json"
   },
   "navigation": [
     {
-      "group": "Documentation",
+      "group": "Blog",
       "pages": [
-        "introduction",
-        "schema",
-        "example"
+        "Introduction",
+        "Schema"
       ]
     }
   ],
   "footerSocials": {
-    "github": "https://github.com/agents-json/agents-json"
+    "github": "https://github.com/wild-card-ai/agents-json"
   }
 }
