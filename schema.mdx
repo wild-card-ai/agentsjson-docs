@@ -1,0 +1,82 @@
+---
+title: 'Schema'
+description: 'The complete agents.json schema specification'
+---
+
+```json
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["agentsJson", "info", "sources", "chains"],
+    "properties": {
+        "agentsJson": {
+            "type": "string",
+            "description": "Specifies the version of the `agents.json` specification being used. Adheres to Semantic Versioning (SemVer) as outlined at https://semver.org/."
+        },
+        "info": {
+            "type": "object",
+            "required": ["title", "version", "description"],
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "The title of the `agents.json` specification. Provides a human-readable name for the specification."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version identifier of the `agents.json` specification. Must follow the Semantic Versioning (SemVer) format as defined in https://semver.org/."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A comprehensive description of the `agents.json` specification, outlining its purpose, functionality, and key features. This description should be clear and detailed to facilitate understanding and implementation by users and Large Language Models (LLMs)."
+                }
+            },
+            "additionalProperties": true
+        },
+        "sources": {
+            "type": "array",
+            "description": "An array of API sources that are available for use within chains. Each source references an OpenAPI 3+ specification, enabling the chaining of multiple APIs.",
+            "items": {
+                "type": "object",
+                "required": ["id", "path"],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A unique, human-readable identifier for the API source. Must be in camelCase format and globally unique within the `agents.json` context, ensuring clear reference and invocation."
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "The file path or URL to the OpenAPI 3+ specification of the API source."
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "chains": {
+            "type": "array",
+            "description": "An array of chains that define sequences of API operations to be executed. Each chain represents a cohesive workflow involving multiple actions, data mappings, and user interactions.",
+            "items": {
+                "type": "object",
+                "required": ["id", "title", "description", "actions", "fields"],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A unique, human-readable identifier for the chain. Must be in camelCase format and globally unique within the `agents.json` context, ensuring clear reference and invocation."
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the chain. Provides a human-readable name for the chain, facilitating easy identification and selection."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A detailed description of the chain, explaining its purpose, the sequence of operations it performs, and its overall functionality. Essential for LLMs to determine the appropriate chain to execute based on user intent."
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "additionalProperties": true
+    }
+}
+```
+
+The complete schema includes additional properties for mappings, fields, responses, and more. This is a simplified version showing the core structure. For the full schema specification, please refer to our GitHub repository. 

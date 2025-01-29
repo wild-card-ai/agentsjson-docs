@@ -1,0 +1,68 @@
+---
+title: 'Example'
+description: 'A practical example of an agents.json implementation'
+---
+
+Here's a practical example of an agents.json implementation for a weather service:
+
+```json
+{
+  "chains": [
+    {
+      "id": "weatherChain",
+      "title": "Fetch Weather Based on Location",
+      "description": "Gets the current weather using the user's location.",
+      "actions": [
+        {
+          "id": "getLocation",
+          "sourceId": "locationAPI",
+          "operationId": "getUserLocation"
+        },
+        {
+          "id": "getWeather",
+          "sourceId": "weatherAPI",
+          "operationId": "getCurrentWeather"
+        }
+      ],
+      "mappings": [
+        {
+          "origin": {
+            "actionId": "getLocation",
+            "fieldPath": "response.latitude"
+          },
+          "target": {
+            "actionId": "getWeather",
+            "fieldPath": "parameters.lat"
+          }
+        },
+        {
+          "origin": {
+            "actionId": "getLocation",
+            "fieldPath": "response.longitude"
+          },
+          "target": {
+            "actionId": "getWeather",
+            "fieldPath": "parameters.lon"
+          }
+        }
+      ],
+      "fields": {
+        "parameters": [
+          {
+            "name": "lat",
+            "description": "Latitude for weather data",
+            "required": true
+          },
+          {
+            "name": "lon",
+            "description": "Longitude for weather data",
+            "required": true
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+This example demonstrates a chain that fetches weather data based on a user's location. It shows how actions can be chained together and how data can be mapped between them. 
