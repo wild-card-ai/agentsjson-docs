@@ -30,8 +30,8 @@
     {
       "group": "Blog",
       "pages": [
-        "Introduction",
-        "Schema"
+        "introduction",
+        "schema"
       ]
     }
   ],
